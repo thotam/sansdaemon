@@ -55,7 +55,7 @@ class SansDaemonServiceProvider extends QueueServiceProvider
      */
     protected function registerWorkCommand()
     {
-        $this->app->extend('command.queue.work', function ($command, Application $app) {
+        $this->app->extend('Illuminate\Queue\Console\WorkCommand', function ($command, Application $app) {
             return new WorkCommand($app['queue.sansDaemonWorker'], $app['cache.store']);
         });
     }
